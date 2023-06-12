@@ -2,7 +2,7 @@
 
 - [x]  Planning
 - [x]  Project setup
-- [ ]  Normalise global styles
+- [x]  Normalise global styles
 - [ ]  UI
     - [ ]  Logo
     - [ ]  Title
