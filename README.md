@@ -5,7 +5,7 @@
 - [x]  Normalise global styles
 - [ ]  UI
     - [x]  Logo
-    - [ ]  Title
+    - [x]  Title
     - [ ]  Text
     - [ ]  Link
     - [ ]  PhoneInput
