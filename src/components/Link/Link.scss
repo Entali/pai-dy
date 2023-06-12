@@ -1,0 +1,29 @@
+@import '../../variables.scss';
+
+.link {
+  display: inline-flex;
+  color: $link;
+  text-decoration: underline;
+  font-weight: 400;
+
+  &:hover {
+    color: $linkHover;
+    text-decoration: none;
+  }
+
+  &:active {
+    color: $linkHover;
+  }
+
+  &:visited {
+    color: $link;
+
+    &:hover {
+      color: $linkHover;
+    }
+  }
+
+  &:focus {
+    color: $linkHover;
+  }
+}

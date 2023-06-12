@@ -6,8 +6,8 @@
 - [ ]  UI
     - [x]  Logo
     - [x]  Title
-    - [ ]  Text
-    - [ ]  Link
+    - [x]  Text
+    - [x]  Link
     - [ ]  PhoneInput
     - [ ]  TextInput
     - [ ]  Checkbox

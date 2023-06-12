@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import React, {ReactNode} from 'react'
 import './Text.scss'
 
 interface Props extends React.HTMLAttributes<HTMLParagraphElement> {
@@ -6,7 +6,7 @@ interface Props extends React.HTMLAttributes<HTMLParagraphElement> {
 }
 
 const Text: React.FC<Props> = (props: Props) => {
-  const { children } = props
+  const {children} = props
 
   return (
       <p className="text">{children}</p>
