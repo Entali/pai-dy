@@ -4,7 +4,7 @@
 - [x]  Project setup
 - [x]  Normalise global styles
 - [ ]  UI
-    - [ ]  Logo
+    - [x]  Logo
     - [ ]  Title
     - [ ]  Text
     - [ ]  Link
