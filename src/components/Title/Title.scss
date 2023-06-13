@@ -1,6 +1,9 @@
 .title {
   margin: 0;
-  font-weight: 600;
+  font-weight: bold;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  line-height: 1.6rem;
 
   &_h1 {
     font-size: 2rem;

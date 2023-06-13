@@ -13,7 +13,7 @@ const Logo: React.FC<Props> = (props: Props) => {
 
   return (
       <div className="logo" style={{
-        width: '6rem' || width,
+        width: '4rem' || width,
         height: baseHeight || height,
       }}>
         <img

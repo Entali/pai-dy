@@ -1,0 +1,78 @@
+@import '../../variables.scss';
+
+.modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  background: $backgroundUnder;
+  display: flex;
+  place-items: center;
+  place-content: center;
+}
+
+.modal-content {
+  position: fixed;
+  min-width: 430px;
+  min-height: 600px;
+  background: $background;
+  border-radius: $borderRadius;
+
+  &__top {
+    height: 150px;
+    padding: 1rem;
+  }
+
+  &__controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+
+  &:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 150px;
+    width: 100%;
+    background: rgb(241, 138, 136, .2);
+    content: '';
+    z-index: -1;
+    border-top-left-radius: $borderRadius;
+    border-top-right-radius: $borderRadius;
+  }
+
+  &__title {
+    margin-top: .2rem;
+  }
+
+  &__section {
+    padding: 1rem;
+  }
+}
+
+.modal-control {
+  cursor: pointer;
+  user-select: none;
+}
+
+.modal-back {
+  width: 25px;
+  height: 25px;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.modal-close {
+  font-size: 1rem;
+  font-weight: bold;
+}

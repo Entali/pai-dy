@@ -12,14 +12,13 @@
     - [x]  EmailInput
     - [ ]  Checkbox
     - [ ]  Submit
-    - [ ]  Price
 - [ ]  PhoneEmailForm
     - [ ]  Compose components
     - [ ]  Hook for state management
     - [ ]  Handlers w/ optimisations
     - [ ]  Validate phone number and email (yup)
 - [ ]  Modal
-    - [ ]  React Portal
+    - [x]  React Portal
     - [ ]  Compose components
 - [ ]  Responsiveness
 - [ ]  Unit tests
