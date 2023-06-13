@@ -1,12 +1,12 @@
-import React, {ReactNode} from 'react'
+import {HTMLAttributes, FC, ReactNode} from 'react'
 import './Title.scss'
 
-interface Props extends React.HTMLAttributes<HTMLHeadingElement> {
+interface ITitleProps extends HTMLAttributes<HTMLHeadingElement> {
   level: number
   children: ReactNode
 }
 
-const Title: React.FC<Props> = (props: Props) => {
+const Title: FC<ITitleProps> = (props: ITitleProps) => {
   const {level, children} = props
   const cls = `title title_h${level}`
 

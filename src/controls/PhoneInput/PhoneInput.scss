@@ -18,13 +18,13 @@
     @include input;
 
     input {
-      left: 35px;
+      left: 2.1875rem;
     }
   }
 
   &__country-code {
     position: absolute;
-    top: 11px;
+    top: 0.6875rem;
     left: 0;
     bottom: 0;
   }

@@ -1,14 +1,14 @@
-import React, {ReactNode} from 'react'
+import {HTMLAttributes, ReactNode, FC} from 'react'
 import './Link.scss'
 
-interface Props extends React.HTMLAttributes<HTMLAnchorElement> {
+interface ILinkProps extends HTMLAttributes<HTMLAnchorElement> {
   to: string
   target?: string
   role?: string
   children: ReactNode
 }
 
-const Link: React.FC<Props> = (props: Props) => {
+const Link: FC<ILinkProps> = (props: ILinkProps) => {
   const {to, target, role, children} = props
 
   return (

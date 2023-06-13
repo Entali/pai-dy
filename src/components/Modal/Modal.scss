@@ -17,13 +17,13 @@
 
 .modal-content {
   position: fixed;
-  min-width: 430px;
-  min-height: 600px;
+  min-width: 26.875rem;
+  min-height: 37.5rem;
   background: $background;
   border-radius: $borderRadius;
 
   &__top {
-    height: 150px;
+    height: 9.375rem;
     padding: 1rem;
   }
 
@@ -39,7 +39,7 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 150px;
+    height: 9.375rem;
     width: 100%;
     background: rgb(241, 138, 136, .2);
     content: '';
@@ -63,8 +63,8 @@
 }
 
 .modal-back {
-  width: 25px;
-  height: 25px;
+  width: 1.5625rem;
+  height: 1.5625rem;
 
   img {
     width: 100%;

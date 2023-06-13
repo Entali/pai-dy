@@ -1,13 +1,14 @@
+import {FC} from 'react'
 import logoImg from './logoImg.ts'
 import './Logo.scss'
 
-interface Props {
+interface ILogoProps {
   width?: string
   height?: string
   alt?: string
 }
 
-const Logo: React.FC<Props> = (props: Props) => {
+const Logo: FC<ILogoProps> = (props: ILogoProps) => {
   const {width, height, alt} = props
   const baseHeight = '1,6875rem'
 

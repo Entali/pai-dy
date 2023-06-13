@@ -2,12 +2,12 @@ import {FC, ChangeEvent} from 'react'
 import Input, {getCountryCallingCode} from 'react-phone-number-input/input'
 import './PhoneInput.scss'
 
-interface PhoneInputProps {
+interface IPhoneInputProps {
   label: string
   onChange: (e: ChangeEvent<HTMLInputElement>) => void
 }
 
-const PhoneInput: FC<PhoneInputProps> = (props: PhoneInputProps) => {
+const PhoneInput: FC<IPhoneInputProps> = (props: IPhoneInputProps) => {
   const {label, onChange} = props
 
   return (

@@ -1,12 +1,12 @@
 import {FC, ChangeEvent} from 'react'
 import './EmailInput.scss'
 
-interface EmailInputProps {
+interface IEmailInputProps {
   label: string
   onChange: (e: ChangeEvent<HTMLInputElement>) => void
 }
 
-const EmailInput: FC<EmailInputProps> = (props: EmailInputProps) => {
+const EmailInput: FC<IEmailInputProps> = (props: IEmailInputProps) => {
   const {label, onChange} = props
 
   return (

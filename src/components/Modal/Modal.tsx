@@ -5,15 +5,16 @@ import Title from '../Title'
 import backImg from './backImg.ts'
 import './Modal.scss'
 
-interface ModalContentProps {
+interface IModalContentProps {
   title: string
   subTitle: ReactNode
   children: ReactNode
   onClose: () => void
 }
 
-const ModalContent: FC<ModalContentProps> = (props: ModalContentProps) => {
+const ModalContent: FC<IModalContentProps> = (props: IModalContentProps) => {
   const {title, subTitle, children, onClose} = props
+
   return (
       <section
           role="dialog"
@@ -43,7 +44,7 @@ const ModalContent: FC<ModalContentProps> = (props: ModalContentProps) => {
   )
 }
 
-interface ModalProps {
+interface IModalProps {
   title: string
   subTitle: ReactNode
   children: ReactNode
@@ -51,7 +52,7 @@ interface ModalProps {
   setModal: (isModal: boolean) => void
 }
 
-const Modal: FC<ModalProps> = (props: ModalProps) => {
+const Modal: FC<IModalProps> = (props: IModalProps) => {
   const {title, subTitle, children, isModal, setModal} = props
   const portalParent = document.getElementById('portal')
 

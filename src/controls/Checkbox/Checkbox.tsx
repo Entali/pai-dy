@@ -1,12 +1,12 @@
 import {FC} from 'react'
 import './Checkbox.scss'
 
-interface CheckboxProps {
+interface ICheckboxProps {
   label: string
   onChange: () => void
 }
 
-const Checkbox: FC<CheckboxProps> = (props: CheckboxProps) => {
+const Checkbox: FC<ICheckboxProps> = (props: ICheckboxProps) => {
   const {label, onChange} = props
 
   return (
