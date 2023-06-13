@@ -3,15 +3,16 @@ import Input, {getCountryCallingCode} from 'react-phone-number-input/input'
 import './PhoneInput.scss'
 
 interface PhoneInputProps {
+  label: string
   onChange: (e: ChangeEvent<HTMLInputElement>) => void
 }
 
 const PhoneInput: FC<PhoneInputProps> = (props: PhoneInputProps) => {
-  const {onChange} = props
+  const {label, onChange} = props
 
   return (
-      <div className="phone-input">
-        <span className="phone-input__label">携帯電話番号</span>
+      <label className="phone-input">
+        <span className="phone-input__label">{label}</span>
         <div className="phone-input__input">
           <span className="phone-input__country-code">
             {`+${getCountryCallingCode("JP")}`}
@@ -26,7 +27,7 @@ const PhoneInput: FC<PhoneInputProps> = (props: PhoneInputProps) => {
               onChange={() => onChange}
           />
         </div>
-      </div>
+      </label>
   )
 }
 

@@ -71,6 +71,9 @@ button {
 *:before,
 *:after {
   box-sizing: inherit;
+  -webkit-user-select :none;
+  -moz-user-select :none;
+  -ms-user-select :none;
 }
 
 p {
@@ -103,7 +106,6 @@ input {
   color: inherit;
   letter-spacing: inherit;
   overflow: visible;
-  appearance: none;
   resize: none;
   outline-style: none;
 }

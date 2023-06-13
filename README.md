@@ -10,7 +10,7 @@
     - [x]  Link
     - [x]  PhoneInput (react-phone-number-input)
     - [x]  EmailInput
-    - [ ]  Checkbox
+    - [x]  Checkbox
     - [ ]  Submit
 - [ ]  PhoneEmailForm
     - [ ]  Compose components

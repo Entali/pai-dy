@@ -1,8 +1,8 @@
 import {FC, ReactNode} from 'react'
 import {createPortal} from 'react-dom'
 import Logo from '../Logo'
-import backImg from './backImg.ts'
 import Title from '../Title'
+import backImg from './backImg.ts'
 import './Modal.scss'
 
 interface ModalContentProps {
