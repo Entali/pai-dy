@@ -8,7 +8,7 @@
     - [x]  Title
     - [x]  Text
     - [x]  Link
-    - [ ]  PhoneInput
+    - [x]  PhoneInput (react-phone-number-input)
     - [ ]  TextInput
     - [ ]  Checkbox
     - [ ]  Submit
