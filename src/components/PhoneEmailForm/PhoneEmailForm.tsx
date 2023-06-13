@@ -9,24 +9,31 @@ import Link from '../Link'
 import Button from '../../controls/Button'
 
 const Form = () => {
-  const {data} = usePhoneEmailForm()
-  const {phoneNumber, email, isSkip} = data
+  const {
+    phone,
+    setPhone,
+    email,
+    setEmail,
+    isSkip,
+    setIsSkip,
+    onSubmit
+  } = usePhoneEmailForm()
 
   return (
-      <form>
+      <form onSubmit={onSubmit}>
         <PhoneInput
             label="携帯電話番号"
-            value={phoneNumber}
-            onChange={() => null}
+            value={phone}
+            onChange={setPhone}
         />
         <EmailInput
             value={email}
-            onChange={() => null}
+            onChange={setEmail}
             label="メールアドレス"/>
         <Checkbox
             checked={isSkip}
             label="次回から入力を省略"
-            onChange={() => null}
+            onChange={setIsSkip}
         />
         <div style={{
           marginTop: '5rem'
@@ -37,7 +44,7 @@ const Form = () => {
             </Link>
             <Text size="0.75rem" weight="400">に同意して</Text>
           </Text>
-          <Button text="次へ" onSubmit={() => null}/>
+          <Button text="次へ" onSubmit={onSubmit}/>
         </div>
       </form>
   )

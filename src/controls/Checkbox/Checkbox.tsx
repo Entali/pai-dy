@@ -3,7 +3,7 @@ import './Checkbox.scss'
 
 interface ICheckboxProps {
   label: string
-  onChange: () => void
+  onChange: (isSkip: boolean) => void
   checked?: boolean
 }
 
@@ -12,7 +12,7 @@ const Checkbox: FC<ICheckboxProps> = (props: ICheckboxProps) => {
 
   return (
       <label className="checkbox">
-        <input type="checkbox" onChange={onChange} defaultChecked={checked}/>
+        <input type="checkbox" onChange={() => onChange} defaultChecked={checked}/>
         <span className="checkbox__label">{label}</span>
       </label>
   )

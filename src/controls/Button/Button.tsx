@@ -12,7 +12,7 @@ const Button: FC<IButtonProps> = (props: IButtonProps) => {
 
   return (
       <div className="button">
-        <input type="submit" value={text} onClick={onSubmit} />
+        <input type="submit" value={text} onClick={() => onSubmit} />
       </div>
   )
 }

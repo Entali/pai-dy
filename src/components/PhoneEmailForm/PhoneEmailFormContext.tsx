@@ -1,4 +1,11 @@
-import {createContext, useContext, ReactNode, useMemo, useState} from 'react'
+import {
+  createContext,
+  useContext,
+  ReactNode,
+  useMemo,
+  useState,
+  useCallback
+} from 'react'
 
 interface IPhoneEmailFormContext {
   phone: string
@@ -11,6 +18,7 @@ interface IPhoneEmailFormContext {
   setPhoneError: (phoneError: string | null) => void
   emailError: string | null
   setEmailError: (emailError: string | null) => void
+  onSubmit: () => void
 }
 
 const PhoneEmailFormContext = createContext({} as IPhoneEmailFormContext)
@@ -27,6 +35,12 @@ const PhoneEmailFormProvider = (props: IPhoneEmailFormProvider) => {
   const [phoneError, setPhoneError] = useState<string | null>(null)
   const [emailError, setEmailError] = useState<string | null>(null)
 
+  const onSubmit = useCallback(() => {
+    console.log('phone', phone)
+    console.log('email', email)
+    console.log('isSkip', isSkip)
+  }, [email, isSkip, phone])
+
   const value = useMemo(() => ({
     phone,
     setPhone,
@@ -37,7 +51,8 @@ const PhoneEmailFormProvider = (props: IPhoneEmailFormProvider) => {
     phoneError,
     setPhoneError,
     emailError,
-    setEmailError
+    setEmailError,
+    onSubmit
   }), [
     phone,
     setPhone,
@@ -48,7 +63,8 @@ const PhoneEmailFormProvider = (props: IPhoneEmailFormProvider) => {
     phoneError,
     setPhoneError,
     emailError,
-    setEmailError
+    setEmailError,
+    onSubmit
   ])
 
   return (
