@@ -1,0 +1,11 @@
+@import '../../mixins.scss';
+
+.email-input {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  &__input {
+    @include input;
+  }
+}

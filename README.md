@@ -9,7 +9,7 @@
     - [x]  Text
     - [x]  Link
     - [x]  PhoneInput (react-phone-number-input)
-    - [ ]  TextInput
+    - [x]  EmailInput
     - [ ]  Checkbox
     - [ ]  Submit
     - [ ]  Price

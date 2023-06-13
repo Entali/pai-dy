@@ -1,9 +1,13 @@
-import {useState} from 'react'
+import {FC, ChangeEvent} from 'react'
 import Input, {getCountryCallingCode} from 'react-phone-number-input/input'
 import './PhoneInput.scss'
 
-const PhoneInput = () => {
-  const [value, setValue] = useState('')
+interface PhoneInputProps {
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void
+}
+
+const PhoneInput: FC<PhoneInputProps> = (props: PhoneInputProps) => {
+  const {onChange} = props
 
   return (
       <div className="phone-input">
@@ -13,13 +17,13 @@ const PhoneInput = () => {
             {`+${getCountryCallingCode("JP")}`}
           </span>
           <Input
+              required
               international
               country="JP"
-              value={value}
               maxLength={12}
               minLength={12}
               className=""
-              onChange={() => setValue('')}
+              onChange={() => onChange}
           />
         </div>
       </div>
