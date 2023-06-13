@@ -29,7 +29,7 @@ const ModalContent: FC<IModalContentProps> = (props: IModalContentProps) => {
             </span>
             <Logo/>
             <span onClick={onClose} className="modal-control modal-close">
-              &#9587;
+              &#8853;
             </span>
           </div>
           <header className="modal-content__title">

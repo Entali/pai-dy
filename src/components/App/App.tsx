@@ -6,6 +6,7 @@ import EmailInput from '../../controls/EmailInput'
 import Modal from '../Modal'
 import './App.scss'
 import Checkbox from "../../controls/Checkbox";
+import Button from "../../controls/Button/Button.tsx";
 
 function App() {
   const [isModal, setModal] = useState(false)
@@ -25,9 +26,17 @@ function App() {
             <PhoneInput onChange={() => null} label="携帯電話番号"/>
             <EmailInput onChange={() => null} label="メールアドレス"/>
             <Checkbox onChange={() => null} label="次回から入力を省略"/>
-            <Link to="https://terms.paidy.com/personal-data" target="_blank">
-              利用規約・個人情報取扱条項 に同意して
-            </Link>
+            <div style={{
+              marginTop: '5rem'
+            }}>
+              <Text size="0.75rem" weight="600" align="center">
+                <Link to="https://terms.paidy.com/personal-data" target="_blank">
+                  利用規約・個人情報取扱条項
+                </Link>
+                <span>に同意して</span>
+              </Text>
+              <Button text="次へ" onSubmit={() => null}/>
+            </div>
           </form>
         </Modal>
       </section>

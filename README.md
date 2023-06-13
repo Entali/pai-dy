@@ -11,7 +11,7 @@
     - [x]  PhoneInput (react-phone-number-input)
     - [x]  EmailInput
     - [x]  Checkbox
-    - [ ]  Submit
+    - [x]  Button
 - [ ]  PhoneEmailForm
     - [ ]  Compose components
     - [ ]  Hook for state management

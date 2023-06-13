@@ -1,0 +1,28 @@
+@import '../../variables.scss';
+
+.button {
+  width: fit-content;
+  min-width: 20rem;
+  align-self: center;
+  display: flex;
+  place-items: center;
+  place-content: center;
+  height: 2.5rem;
+  font-weight: 600;
+  font-size: 0.75rem;
+  color: #fff;
+  padding: 0.5rem;
+  margin: {
+    top: 1.5rem;
+    bottom: 1.5rem;
+    left: auto;
+    right: auto;
+  };
+  background-image: $gradient;
+  border-radius: $borderRadius * 2;
+  cursor: pointer;
+
+  &:hover {
+    background-image: $gradientHover;
+  }
+}

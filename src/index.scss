@@ -109,3 +109,21 @@ input {
   resize: none;
   outline-style: none;
 }
+
+input::-webkit-contacts-auto-fill-button {
+  visibility: hidden;
+  display: none !important;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active  {
+  -webkit-box-shadow: 0 0 0 60px #fff inset !important;
+  -moz-box-shadow: 0 0 0 60px #fff inset !important;
+  background-color: #fff !important;
+  background-clip: content-box !important;
+}
