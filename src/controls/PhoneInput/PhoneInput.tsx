@@ -5,10 +5,11 @@ import './PhoneInput.scss'
 interface IPhoneInputProps {
   label: string
   onChange: (e: ChangeEvent<HTMLInputElement>) => void
+  value?: string
 }
 
 const PhoneInput: FC<IPhoneInputProps> = (props: IPhoneInputProps) => {
-  const {label, onChange} = props
+  const {label, onChange, value} = props
 
   return (
       <label className="phone-input">
@@ -23,7 +24,7 @@ const PhoneInput: FC<IPhoneInputProps> = (props: IPhoneInputProps) => {
               country="JP"
               maxLength={12}
               minLength={12}
-              className=""
+              value={value}
               onChange={() => onChange}
           />
         </div>

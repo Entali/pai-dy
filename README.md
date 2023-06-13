@@ -3,7 +3,7 @@
 - [x]  Planning
 - [x]  Project setup
 - [x]  Normalise global styles
-- [ ]  UI
+- [x]  UI
     - [x]  Logo
     - [x]  Title
     - [x]  Text
@@ -13,13 +13,13 @@
     - [x]  Checkbox
     - [x]  Button
 - [ ]  PhoneEmailForm
-    - [ ]  Compose components
-    - [ ]  Hook for state management
+    - [x]  Compose components
+    - [x]  Context, Provider
     - [ ]  Handlers w/ optimisations
     - [ ]  Validate phone number and email (yup)
 - [ ]  Modal
     - [x]  React Portal
-    - [ ]  Compose components
+    - [x]  Compose components
 - [ ]  Responsiveness
 - [ ]  Unit tests
 - [ ]  Push Github repository to Codesandbox

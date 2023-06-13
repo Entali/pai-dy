@@ -46,7 +46,7 @@ const ModalContent: FC<IModalContentProps> = (props: IModalContentProps) => {
 
 interface IModalProps {
   title: string
-  subTitle: ReactNode
+  subTitle: ReactNode | string
   children: ReactNode
   isModal: boolean
   setModal: (isModal: boolean) => void
