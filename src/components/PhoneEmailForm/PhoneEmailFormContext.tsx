@@ -1,34 +1,58 @@
-import {createContext, useContext, ReactNode, useMemo} from 'react'
+import {createContext, useContext, ReactNode, useMemo, useState} from 'react'
 
 interface IPhoneEmailFormContext {
-  data: {
-    phoneNumber: string
-    email: string
-    isSkip: boolean
-  }
+  phone: string
+  setPhone: (phone: string) => void
+  email: string
+  setEmail: (email: string) => void
+  isSkip: boolean
+  setIsSkip: (isSkip: boolean) => void
+  phoneError: string | null
+  setPhoneError: (phoneError: string | null) => void
+  emailError: string | null
+  setEmailError: (emailError: string | null) => void
 }
 
 const PhoneEmailFormContext = createContext({} as IPhoneEmailFormContext)
+PhoneEmailFormContext.displayName = "PhoneEmailFormContext";
 
 interface IPhoneEmailFormProvider {
   children: ReactNode
 }
 
-const PhoneEmailFormProvider = ({children}: IPhoneEmailFormProvider) => {
-  const data = useMemo(() => ({
-    phoneNumber: '',
-    email: '',
-    isSkip: true,
-  }), [])
+const PhoneEmailFormProvider = (props: IPhoneEmailFormProvider) => {
+  const [phone, setPhone] = useState<string>('')
+  const [email, setEmail] = useState<string>('')
+  const [isSkip, setIsSkip] = useState<boolean>(false)
+  const [phoneError, setPhoneError] = useState<string | null>(null)
+  const [emailError, setEmailError] = useState<string | null>(null)
 
   const value = useMemo(() => ({
-    data,
-  }), [data])
+    phone,
+    setPhone,
+    email,
+    setEmail,
+    isSkip,
+    setIsSkip,
+    phoneError,
+    setPhoneError,
+    emailError,
+    setEmailError
+  }), [
+    phone,
+    setPhone,
+    email,
+    setEmail,
+    isSkip,
+    setIsSkip,
+    phoneError,
+    setPhoneError,
+    emailError,
+    setEmailError
+  ])
 
   return (
-      <PhoneEmailFormContext.Provider value={value}>
-        {children}
-      </PhoneEmailFormContext.Provider>
+      <PhoneEmailFormContext.Provider value={value} {...props} />
   )
 }
 
