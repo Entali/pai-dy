@@ -8,7 +8,7 @@ import Button from '../../controls/Button'
 import {IForm, IPhoneEmailFormContext} from './types.ts'
 import './PhoneEmailForm.scss'
 
-const Form = () => {
+export const Form = () => {
   const {
     form,
     errors,
@@ -20,7 +20,7 @@ const Form = () => {
   }: IPhoneEmailFormContext = usePhoneEmailForm()
 
   return (
-      <form onSubmit={handleSubmit} className="phone-email-form">
+      <form onSubmit={handleSubmit} className="phone-email-form" data-testid="phone-email-form">
         <PhoneInput
             ref={phoneRef}
             label="携帯電話番号"
