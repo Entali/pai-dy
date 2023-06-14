@@ -5,7 +5,7 @@ import './EmailInput.scss'
 
 interface IEmailInputProps extends InputHTMLAttributes<HTMLInputElement> {
   label: string
-  ref: Ref<HTMLInputElement>
+  ref?: Ref<HTMLInputElement>
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void
   value?: string
   error?: TError
@@ -24,8 +24,9 @@ const EmailInput: FC<IEmailInputProps> = forwardRef<HTMLInputElement, IEmailInpu
               type="text"
               defaultValue={value}
               onChange={onChange}
-              className={error ? `${cls} ${cls}_error` : cls}
               placeholder="example@google.com"
+              data-testid="email-input__email"
+              className={error ? `${cls} ${cls}_error` : cls}
           />
           {error ? <div className="email-input__error">{error}</div> : null}
         </label>
