@@ -17,7 +17,7 @@ const Checkbox: FC<ICheckboxProps> = forwardRef<HTMLInputElement, ICheckboxProps
           <input
               ref={ref}
               type="checkbox"
-              onChange={() => onChange}
+              onChange={onChange}
               defaultChecked={checked}
           />
           <span className="checkbox__label">{label}</span>

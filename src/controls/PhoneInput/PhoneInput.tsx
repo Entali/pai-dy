@@ -7,9 +7,7 @@ import {
 } from 'react'
 import Input, {getCountryCallingCode} from 'react-phone-number-input/input'
 import Text from '../../components/Text'
-import {
-  TError
-} from '../../components/PhoneEmailForm/PhoneEmailFormContext.tsx'
+import {TError} from '../../components/PhoneEmailForm/types.ts'
 import './PhoneInput.scss'
 
 interface IPhoneInputProps extends InputHTMLAttributes<HTMLInputElement> {
@@ -36,10 +34,8 @@ const PhoneInput: FC<IPhoneInputProps> = forwardRef<HTMLInputElement, IPhoneInpu
                 ref={ref}
                 international
                 country="JP"
-                maxLength={12}
-                minLength={12}
                 value={value}
-                onChange={() => onChange}
+                onChange={onChange as any}
             />
             {error ? <div className="phone-input__error">{error}</div> : null}
           </div>

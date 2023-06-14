@@ -1,8 +1,6 @@
 import {ChangeEvent, FC, forwardRef, InputHTMLAttributes, Ref} from 'react'
 import Text from '../../components/Text'
-import {
-  TError
-} from '../../components/PhoneEmailForm/PhoneEmailFormContext.tsx'
+import {TError} from '../../components/PhoneEmailForm/types.ts'
 import './EmailInput.scss'
 
 interface IEmailInputProps extends InputHTMLAttributes<HTMLInputElement> {
@@ -25,7 +23,7 @@ const EmailInput: FC<IEmailInputProps> = forwardRef<HTMLInputElement, IEmailInpu
               ref={ref}
               type="email"
               defaultValue={value}
-              onChange={() => onChange}
+              onChange={onChange}
               className="email-input__input"
           />
           {error ? <div className="email-input__error">{error}</div> : null}

@@ -1,38 +1,20 @@
 import {
   createContext,
   useContext,
-  ReactNode,
   useMemo,
   useState,
-  useRef, RefObject, ChangeEvent, useCallback,
+  useRef,
+  ChangeEvent,
+  useCallback, Dispatch, SetStateAction
 } from 'react'
-
-export type TError = string | null
-
-export interface IPhoneEmailFormProvider {
-  children: ReactNode
-}
-
-export interface IForm {
-  phone: string
-  email: string
-  isSkip: boolean
-}
-
-export interface IFormErrors {
-  phone: TError
-  email: TError
-  isSkip: TError
-}
-
-export interface IPhoneEmailFormContext {
-  form: IForm
-  errors: IFormErrors
-  phoneRef: RefObject<HTMLInputElement>
-  emailRef: RefObject<HTMLInputElement>
-  skipRef: RefObject<HTMLInputElement>
-  handleSubmit: (e: ChangeEvent<HTMLFormElement>) => void
-}
+import {
+  IForm,
+  IFormErrors,
+  IPhoneEmailFormContext,
+  IPhoneEmailFormProvider
+} from './types.ts'
+import validatePhone from './validatePhone.ts'
+import validateEmail from './validateEmail.ts'
 
 const PhoneEmailFormContext = createContext({} as IPhoneEmailFormContext)
 PhoneEmailFormContext.displayName = 'PhoneEmailFormContext'
@@ -51,18 +33,39 @@ const initialErrors: IFormErrors = {
 
 const PhoneEmailFormProvider = (props: IPhoneEmailFormProvider) => {
   const [form, setForm] = useState<IForm>(initialForm)
-  const [errors] = useState<IFormErrors>(initialErrors)
+  const [errors, setErrors] = useState<IFormErrors>(initialErrors)
   const phoneRef = useRef<HTMLInputElement>(null)
   const emailRef = useRef<HTMLInputElement>(null)
   const skipRef = useRef<HTMLInputElement>(null)
 
-  const handleSubmit = useCallback((e: ChangeEvent<HTMLFormElement>) => {
-    e.preventDefault()
+  const validateForm = useCallback(async(
+      form: IForm,
+      setErrors: Dispatch<SetStateAction<IFormErrors>>
+  ): Promise<boolean> => {
+    console.log('validateForm', form)
 
-    // validate
-    // if success reset form
-    // if error set errors
+    if (!validatePhone(form.phone)) {
+      setErrors({
+        ...errors,
+        phone: 'Invalid phone number'
+      })
 
+      return false
+    }
+
+    if (!validateEmail(form.email)) {
+      setErrors({
+        ...errors,
+        email: 'Invalid email'
+      })
+
+      return false
+    }
+
+    return true
+  }, [errors])
+
+  const handleChange = useCallback(() => {
     setForm({
       ...form,
       phone: `+81${phoneRef.current?.value}`.replace(/\s/g, '') || '',
@@ -71,12 +74,25 @@ const PhoneEmailFormProvider = (props: IPhoneEmailFormProvider) => {
     })
   }, [form])
 
+  const handleSubmit = useCallback(async (e: ChangeEvent<HTMLFormElement>) => {
+    e.preventDefault()
+
+    const isValidForm = await validateForm(form, setErrors)
+
+    if (isValidForm) {
+      console.log('Form validation successful')
+    } else {
+      console.log('Form validation failed')
+    }
+  }, [form, validateForm])
+
   const value = useMemo(() => ({
     form,
     errors,
     phoneRef,
     emailRef,
     skipRef,
+    handleChange,
     handleSubmit
   }), [
     form,
@@ -84,6 +100,7 @@ const PhoneEmailFormProvider = (props: IPhoneEmailFormProvider) => {
     phoneRef,
     emailRef,
     skipRef,
+    handleChange,
     handleSubmit
   ])
 
