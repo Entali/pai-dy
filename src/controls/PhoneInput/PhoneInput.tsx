@@ -13,8 +13,8 @@ import './PhoneInput.scss'
 
 interface IPhoneInputProps extends InputHTMLAttributes<HTMLInputElement> {
   label: string
-  ref: Ref<HTMLInputElement>
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => void
+  ref?: Ref<HTMLInputElement>
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void
   value?: string
   error?: TError
 }
@@ -38,6 +38,7 @@ const PhoneInput: FC<IPhoneInputProps> = forwardRef<HTMLInputElement, IPhoneInpu
                 country={COUNTRY}
                 placeholder="00-0000-0000"
                 onChange={onChange as any}
+                data-testid="phone-input__phone"
             />
           </div>
           {error ? <div className="phone-input__error">{error}</div> : null}

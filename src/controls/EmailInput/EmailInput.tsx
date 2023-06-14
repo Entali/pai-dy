@@ -21,7 +21,7 @@ const EmailInput: FC<IEmailInputProps> = forwardRef<HTMLInputElement, IEmailInpu
           <Text size="1rem" weight="800">{label}</Text>
           <input
               ref={ref}
-              type="email"
+              type="text"
               defaultValue={value}
               onChange={onChange}
               className={error ? `${cls} ${cls}_error` : cls}
