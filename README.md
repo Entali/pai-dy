@@ -12,12 +12,12 @@
     - [x]  EmailInput
     - [x]  Checkbox
     - [x]  Button
-- [ ]  PhoneEmailForm
+- [x]  PhoneEmailForm
     - [x]  Compose components
     - [x]  Context, Provider
     - [x]  Handlers w/ optimisations
-    - [ ]  Validate phone number and email (yup)
-- [ ]  Modal
+    - [x]  Validate phone number and email
+- [x]  Modal
     - [x]  React Portal
     - [x]  Compose components
 - [ ]  Responsiveness
