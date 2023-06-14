@@ -1,4 +1,5 @@
 import PhoneEmailFormProvider, {
+  IPhoneEmailFormContext,
   usePhoneEmailForm
 } from './PhoneEmailFormContext'
 import PhoneInput from '../../controls/PhoneInput'
@@ -11,30 +12,37 @@ import './PhoneEmailForm.scss'
 
 const Form = () => {
   const {
-    phone,
-    setPhone,
-    email,
-    setEmail,
-    isSkip,
-    setIsSkip,
-    onSubmit
-  } = usePhoneEmailForm()
+    form,
+    errors,
+    phoneRef,
+    emailRef,
+    skipRef,
+    handleChange,
+    handleSubmit
+  }: IPhoneEmailFormContext = usePhoneEmailForm()
+
+  console.log('form', form);
 
   return (
-      <form onSubmit={onSubmit} className="phone-email-form">
+      <form onSubmit={handleSubmit} className="phone-email-form">
         <PhoneInput
+            ref={phoneRef}
             label="携帯電話番号"
-            value={phone}
-            onChange={setPhone}
+            value={form.phone}
+            error={errors.phone}
+            onChange={handleChange}
         />
         <EmailInput
-            value={email}
-            onChange={setEmail}
+            ref={emailRef}
+            value={form.email}
+            onChange={handleChange}
+            error={errors.email}
             label="メールアドレス"/>
         <Checkbox
-            checked={isSkip}
+            ref={skipRef}
+            checked={form.isSkip}
             label="次回から入力を省略"
-            onChange={setIsSkip}
+            onChange={handleChange}
         />
         <div className="phone-email-form__bottom">
           <Text size="0.75rem" weight="600" align="center">
@@ -43,7 +51,7 @@ const Form = () => {
             </Link>
             <Text inline size="0.75rem" weight="400">に同意して</Text>
           </Text>
-          <Button text="次へ" onSubmit={onSubmit}/>
+          <Button text="次へ"/>
         </div>
       </form>
   )

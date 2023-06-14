@@ -22,3 +22,9 @@
     bottom: 0;
   }
 }
+
+@mixin error {
+  color: $error;
+  font-size: .9rem;
+  margin-top: .5rem;
+}

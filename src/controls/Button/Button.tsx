@@ -3,16 +3,15 @@ import './Button.scss'
 
 interface IButtonProps {
   text: string
-  onSubmit: () => void
 }
 
 const Button: FC<IButtonProps> = (props: IButtonProps) => {
-  const {text, onSubmit} = props
+  const {text} = props
 
 
   return (
       <div className="button">
-        <input type="submit" value={text} onClick={() => onSubmit} />
+        <button type="submit" value={text}/>
       </div>
   )
 }

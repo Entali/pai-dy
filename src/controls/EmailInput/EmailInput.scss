@@ -13,4 +13,8 @@
   &__input {
     @include input;
   }
+
+  &__error {
+    @include error;
+  }
 }

@@ -1,28 +1,40 @@
-import {FC} from 'react'
+import {ChangeEvent, FC, forwardRef, InputHTMLAttributes, Ref} from 'react'
 import Text from '../../components/Text'
+import {
+  TError
+} from '../../components/PhoneEmailForm/PhoneEmailFormContext.tsx'
 import './EmailInput.scss'
 
-interface IEmailInputProps {
+interface IEmailInputProps extends InputHTMLAttributes<HTMLInputElement> {
   label: string
-  onChange: (email: string) => void
+  ref: Ref<HTMLInputElement>
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void
   value?: string
+  error?: TError
 }
 
-const EmailInput: FC<IEmailInputProps> = (props: IEmailInputProps) => {
-  const {label, onChange, value} = props
+const EmailInput: FC<IEmailInputProps> = forwardRef<HTMLInputElement, IEmailInputProps>(
+  (props: IEmailInputProps, ref) => {
+    const {id, label, onChange, value, error} = props
 
-  return (
-      <label className="email-input">
-        <Text size="1rem" weight="800">{label}</Text>
-        <input
-            required
-            type="email"
-            value={value}
-            onChange={() => onChange}
-            className="email-input__input"
-        />
-      </label>
-  )
-}
+    return (
+        <label className="email-input" htmlFor={id}>
+          <Text size="1rem" weight="800">{label}</Text>
+          <input
+              id={id}
+              required
+              ref={ref}
+              type="email"
+              defaultValue={value}
+              onChange={() => onChange}
+              className="email-input__input"
+          />
+          {error ? <div className="email-input__error">{error}</div> : null}
+        </label>
+    )
+  }
+)
+
+EmailInput.displayName = 'EmailInput'
 
 export default EmailInput
