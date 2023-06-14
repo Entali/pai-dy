@@ -1,0 +1,9 @@
+.phone-email-form {
+
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    margin-top: 5rem;
+  }
+}

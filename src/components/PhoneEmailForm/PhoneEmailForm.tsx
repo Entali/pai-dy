@@ -7,6 +7,7 @@ import Checkbox from '../../controls/Checkbox'
 import Text from '../Text'
 import Link from '../Link'
 import Button from '../../controls/Button'
+import './PhoneEmailForm.scss'
 
 const Form = () => {
   const {
@@ -20,7 +21,7 @@ const Form = () => {
   } = usePhoneEmailForm()
 
   return (
-      <form onSubmit={onSubmit}>
+      <form onSubmit={onSubmit} className="phone-email-form">
         <PhoneInput
             label="携帯電話番号"
             value={phone}
@@ -35,14 +36,12 @@ const Form = () => {
             label="次回から入力を省略"
             onChange={setIsSkip}
         />
-        <div style={{
-          marginTop: '5rem'
-        }}>
+        <div className="phone-email-form__bottom">
           <Text size="0.75rem" weight="600" align="center">
             <Link to="https://terms.paidy.com/personal-data" target="_blank">
               利用規約・個人情報取扱条項
             </Link>
-            <Text size="0.75rem" weight="400">に同意して</Text>
+            <Text inline size="0.75rem" weight="400">に同意して</Text>
           </Text>
           <Button text="次へ" onSubmit={onSubmit}/>
         </div>

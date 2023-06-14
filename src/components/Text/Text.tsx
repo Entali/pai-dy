@@ -9,19 +9,27 @@ interface ITextProps extends HTMLAttributes<HTMLParagraphElement> {
   size: number | string
   weight: weightEnum
   align?: alignEnum
+  inline?: boolean
 }
 
 const Text: FC<ITextProps> = (props: ITextProps) => {
-  const {children, size, weight, align} = props
+  const {children, size, weight, align, inline} = props
+
+  const cls = "text"
+  const style = {
+    fontSize: size,
+    fontWeight: weight,
+    textAlign: align || 'left'
+  }
 
   return (
-      <p className="text" style={{
-        fontSize: size,
-        fontWeight: weight,
-        textAlign: align || 'left'
-      }}>
-        {children}
-      </p>
+      <>
+        {inline ? (
+            <span className={cls} style={style}>{children}</span>
+        ) : (
+            <p className={cls} style={style}>{children}</p>
+        )}
+      </>
   )
 }
 

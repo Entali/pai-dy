@@ -1,4 +1,5 @@
 import {FC} from 'react'
+import Text from '../../components/Text'
 import './EmailInput.scss'
 
 interface IEmailInputProps {
@@ -12,7 +13,7 @@ const EmailInput: FC<IEmailInputProps> = (props: IEmailInputProps) => {
 
   return (
       <label className="email-input">
-        <span className="email-input__label">{label}</span>
+        <Text size="1rem" weight="800">{label}</Text>
         <input
             required
             type="email"

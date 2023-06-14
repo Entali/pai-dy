@@ -15,7 +15,7 @@
 - [ ]  PhoneEmailForm
     - [x]  Compose components
     - [x]  Context, Provider
-    - [ ]  Handlers w/ optimisations
+    - [x]  Handlers w/ optimisations
     - [ ]  Validate phone number and email (yup)
 - [ ]  Modal
     - [x]  React Portal
