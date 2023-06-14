@@ -37,8 +37,10 @@
   }
 
   &__top {
+    position: relative;
     height: 9.375rem;
     padding: 1rem;
+    z-index: 5;
   }
 
   &__controls {
