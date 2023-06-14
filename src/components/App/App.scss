@@ -3,12 +3,12 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-  zoom: 3;
 
   &__message {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 2rem
+    margin-top: 2rem;
+    zoom: 2;
   }
 }

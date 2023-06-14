@@ -18,7 +18,7 @@ function App() {
   return (
       <section className="app">
         <button onClick={openModal}>
-          {isModal ? 'Close' : 'Open'}
+          {isModal ? 'クリックして閉じます' : 'クリックして開きます'}
         </button>
         <Modal
             isModal={isModal}

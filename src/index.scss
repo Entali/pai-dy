@@ -20,6 +20,12 @@ html, body, #root {
   sans-serif;
 }
 
+#root {
+  display: flex;
+  place-items: center;
+  place-content: center;
+}
+
 a {
   text-decoration: inherit;
 }

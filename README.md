@@ -20,6 +20,6 @@
 - [x]  Modal
     - [x]  React Portal
     - [x]  Compose components
-- [ ]  Responsiveness
-- [ ]  Unit tests
+- [x]  Responsiveness
+- [x]  Unit tests
 - [ ]  Push Github repository to Codesandbox
