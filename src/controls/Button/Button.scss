@@ -22,6 +22,10 @@
   border-radius: $borderRadius * 2;
   cursor: pointer;
 
+  input {
+    cursor: pointer;
+  }
+
   &:hover {
     background-image: $gradientHover;
   }

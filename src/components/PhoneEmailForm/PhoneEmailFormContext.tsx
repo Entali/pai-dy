@@ -31,7 +31,6 @@ export interface IPhoneEmailFormContext {
   phoneRef: RefObject<HTMLInputElement>
   emailRef: RefObject<HTMLInputElement>
   skipRef: RefObject<HTMLInputElement>
-  handleChange: (e: ChangeEvent<HTMLInputElement>) => void
   handleSubmit: (e: ChangeEvent<HTMLFormElement>) => void
 }
 
@@ -57,13 +56,12 @@ const PhoneEmailFormProvider = (props: IPhoneEmailFormProvider) => {
   const emailRef = useRef<HTMLInputElement>(null)
   const skipRef = useRef<HTMLInputElement>(null)
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const handleChange = () => {
-    console.log('handleChange')
-  }
-
   const handleSubmit = useCallback((e: ChangeEvent<HTMLFormElement>) => {
     e.preventDefault()
+
+    // validate
+    // if success reset form
+    // if error set errors
 
     setForm({
       ...form,
@@ -79,7 +77,6 @@ const PhoneEmailFormProvider = (props: IPhoneEmailFormProvider) => {
     phoneRef,
     emailRef,
     skipRef,
-    handleChange,
     handleSubmit
   }), [
     form,
@@ -87,7 +84,6 @@ const PhoneEmailFormProvider = (props: IPhoneEmailFormProvider) => {
     phoneRef,
     emailRef,
     skipRef,
-    handleChange,
     handleSubmit
   ])
 

@@ -4,7 +4,7 @@ import './Checkbox.scss'
 interface ICheckboxProps {
   label: string
   ref: Ref<HTMLInputElement>
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void
   checked?: boolean
 }
 

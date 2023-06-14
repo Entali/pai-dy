@@ -15,7 +15,7 @@ import './PhoneInput.scss'
 interface IPhoneInputProps extends InputHTMLAttributes<HTMLInputElement> {
   label: string
   ref: Ref<HTMLInputElement>
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void
   value?: string
   error?: TError
 }

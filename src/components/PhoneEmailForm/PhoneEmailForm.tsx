@@ -17,7 +17,6 @@ const Form = () => {
     phoneRef,
     emailRef,
     skipRef,
-    handleChange,
     handleSubmit
   }: IPhoneEmailFormContext = usePhoneEmailForm()
 
@@ -30,19 +29,16 @@ const Form = () => {
             label="携帯電話番号"
             value={form.phone}
             error={errors.phone}
-            onChange={handleChange}
         />
         <EmailInput
             ref={emailRef}
             value={form.email}
-            onChange={handleChange}
             error={errors.email}
             label="メールアドレス"/>
         <Checkbox
             ref={skipRef}
             checked={form.isSkip}
             label="次回から入力を省略"
-            onChange={handleChange}
         />
         <div className="phone-email-form__bottom">
           <Text size="0.75rem" weight="600" align="center">

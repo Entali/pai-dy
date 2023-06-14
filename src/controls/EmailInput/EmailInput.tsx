@@ -8,20 +8,19 @@ import './EmailInput.scss'
 interface IEmailInputProps extends InputHTMLAttributes<HTMLInputElement> {
   label: string
   ref: Ref<HTMLInputElement>
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void
   value?: string
   error?: TError
 }
 
 const EmailInput: FC<IEmailInputProps> = forwardRef<HTMLInputElement, IEmailInputProps>(
   (props: IEmailInputProps, ref) => {
-    const {id, label, onChange, value, error} = props
+    const {label, onChange, value, error} = props
 
     return (
-        <label className="email-input" htmlFor={id}>
+        <label className="email-input">
           <Text size="1rem" weight="800">{label}</Text>
           <input
-              id={id}
               required
               ref={ref}
               type="email"
