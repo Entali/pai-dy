@@ -1,6 +1,7 @@
 @import '../../variables.scss';
 
 .button {
+  position: relative;
   width: fit-content;
   min-width: 20rem;
   align-self: center;
@@ -21,9 +22,16 @@
   background-image: $gradient;
   border-radius: $borderRadius * 2;
   cursor: pointer;
+  z-index: 1;
 
   input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
     cursor: pointer;
+    z-index: 2;
   }
 
   &:hover {

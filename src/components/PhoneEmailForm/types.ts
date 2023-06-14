@@ -3,6 +3,8 @@ import {ChangeEvent, ReactNode, RefObject} from 'react'
 export type TError = string | null
 
 export interface IPhoneEmailFormProvider {
+  setModal: (isModal: boolean) => void
+  setMessage: (form: IForm) => void
   children: ReactNode
 }
 

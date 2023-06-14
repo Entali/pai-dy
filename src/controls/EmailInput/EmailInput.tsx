@@ -14,17 +14,18 @@ interface IEmailInputProps extends InputHTMLAttributes<HTMLInputElement> {
 const EmailInput: FC<IEmailInputProps> = forwardRef<HTMLInputElement, IEmailInputProps>(
   (props: IEmailInputProps, ref) => {
     const {label, onChange, value, error} = props
+    const cls  = "email-input__input"
 
     return (
         <label className="email-input">
           <Text size="1rem" weight="800">{label}</Text>
           <input
-              required
               ref={ref}
               type="email"
               defaultValue={value}
               onChange={onChange}
-              className="email-input__input"
+              className={error ? `${cls} ${cls}_error` : cls}
+              placeholder="example@google.com"
           />
           {error ? <div className="email-input__error">{error}</div> : null}
         </label>

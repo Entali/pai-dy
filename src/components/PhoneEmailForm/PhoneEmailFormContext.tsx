@@ -5,7 +5,7 @@ import {
   useState,
   useRef,
   ChangeEvent,
-  useCallback, Dispatch, SetStateAction
+  useCallback
 } from 'react'
 import {
   IForm,
@@ -15,6 +15,7 @@ import {
 } from './types.ts'
 import validatePhone from './validatePhone.ts'
 import validateEmail from './validateEmail.ts'
+import {COUNTRY_CODE} from '../../constants.ts'
 
 const PhoneEmailFormContext = createContext({} as IPhoneEmailFormContext)
 PhoneEmailFormContext.displayName = 'PhoneEmailFormContext'
@@ -38,37 +39,22 @@ const PhoneEmailFormProvider = (props: IPhoneEmailFormProvider) => {
   const emailRef = useRef<HTMLInputElement>(null)
   const skipRef = useRef<HTMLInputElement>(null)
 
-  const validateForm = useCallback(async(
-      form: IForm,
-      setErrors: Dispatch<SetStateAction<IFormErrors>>
-  ): Promise<boolean> => {
-    console.log('validateForm', form)
+  const { setModal, setMessage } = props
 
-    if (!validatePhone(form.phone)) {
-      setErrors({
-        ...errors,
-        phone: 'Invalid phone number'
-      })
+  const validateForm = useCallback(async () => {
+    setErrors({
+      ...errors,
+      phone: !validatePhone(form.phone) ? '有効な電話番号を入力して下さい' : null,
+      email: !validateEmail(form.email) ? '有効なメールアドレスを入力して下さい' : null
+    })
 
-      return false
-    }
-
-    if (!validateEmail(form.email)) {
-      setErrors({
-        ...errors,
-        email: 'Invalid email'
-      })
-
-      return false
-    }
-
-    return true
-  }, [errors])
+    return validatePhone(form.phone) && validateEmail(form.email)
+  }, [errors, form.email, form.phone])
 
   const handleChange = useCallback(() => {
     setForm({
       ...form,
-      phone: `+81${phoneRef.current?.value}`.replace(/\s/g, '') || '',
+      phone: `${COUNTRY_CODE}${phoneRef.current?.value}`.replace(/\s/g, '') || '',
       email: emailRef.current?.value || '',
       isSkip: skipRef.current?.checked || false
     })
@@ -77,14 +63,17 @@ const PhoneEmailFormProvider = (props: IPhoneEmailFormProvider) => {
   const handleSubmit = useCallback(async (e: ChangeEvent<HTMLFormElement>) => {
     e.preventDefault()
 
-    const isValidForm = await validateForm(form, setErrors)
+    const isValid = await validateForm();
 
-    if (isValidForm) {
-      console.log('Form validation successful')
+    if (isValid) {
+      setErrors(initialErrors)
+      setForm(initialForm)
+      setModal(false)
+      setMessage(form)
     } else {
       console.log('Form validation failed')
     }
-  }, [form, validateForm])
+  }, [validateForm, setModal, setMessage, form])
 
   const value = useMemo(() => ({
     form,

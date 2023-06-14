@@ -5,7 +5,7 @@ import Checkbox from '../../controls/Checkbox'
 import Text from '../Text'
 import Link from '../Link'
 import Button from '../../controls/Button'
-import {IPhoneEmailFormContext} from './types.ts'
+import {IForm, IPhoneEmailFormContext} from './types.ts'
 import './PhoneEmailForm.scss'
 
 const Form = () => {
@@ -54,9 +54,14 @@ const Form = () => {
   )
 }
 
-const PhoneEmailForm = () => {
+interface PhoneEmailFormProps {
+  setModal: (isModal: boolean) => void
+  setMessage: (form: IForm) => void
+}
+
+const PhoneEmailForm = (props: PhoneEmailFormProps) => {
   return (
-      <PhoneEmailFormProvider>
+      <PhoneEmailFormProvider {...props}>
         <Form/>
       </PhoneEmailFormProvider>
   );
