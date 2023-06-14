@@ -2,9 +2,9 @@ import {useState} from 'react'
 import Text from '../Text'
 import Title from '../Title'
 import Modal from '../Modal'
+import PhoneEmailForm from '../PhoneEmailForm'
+import {IForm} from '../PhoneEmailForm/types.ts'
 import './App.scss'
-import PhoneEmailForm from "../PhoneEmailForm";
-import {IForm} from "../PhoneEmailForm/types.ts";
 
 function App() {
   const [isModal, setModal] = useState<boolean>(false)
@@ -29,12 +29,7 @@ function App() {
           <PhoneEmailForm setModal={setModal} setMessage={setMessage}/>
         </Modal>
         {message && (
-          <section style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            marginTop: '2rem'
-          }}>
+          <section className="app__message">
             <Title level={6}>Form sent with</Title>
             <Text size="0.5rem" weight="100">Phone number: {message.phone}</Text>
             <Text size="0.5rem" weight="100">Email address: {message.email}</Text>
