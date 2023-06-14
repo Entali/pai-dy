@@ -22,4 +22,4 @@
     - [x]  Compose components
 - [x]  Responsiveness
 - [x]  Unit tests
-- [ ]  Push Github repository to Codesandbox
+- [x]  Push Github repository to Codesandbox
